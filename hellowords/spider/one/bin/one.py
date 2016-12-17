@@ -2,7 +2,6 @@
 
 import httplib2
 import pyquery
-import threading
 import logging
 import logging.config
 import argparse
@@ -33,6 +32,7 @@ class OneWord(object):
             one = self.ProcessOnePage(idx)
             if one:
                 Logger.infoLogger.critical(one)
+
 
 class OneAuto(object):
     def __init__(self, fname):
