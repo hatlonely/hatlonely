@@ -1,0 +1,51 @@
+#!/usr/bin/env python3
+
+import smtplib
+import email.mime.text
+import configparser
+import argparse
+import os
+
+
+class MailSender(object):
+    """ 配置文件示例
+    [smtp]
+    host = smtp.163.com
+    user = you@163.com
+    password = 123456
+    """
+    def __init__(self, conf):
+        cp = configparser.ConfigParser()
+        cp.read(conf)
+        self.host = cp.get('smtp', 'host')
+        self.port = cp.getint('smtp', 'port')
+        self.user = cp.get('smtp', 'user')
+        self.password = cp.get('smtp', 'password')
+
+    def send(self, to, subject, content):
+        message = email.mime.text.MIMEText(content, 'plain', 'utf-8')
+        message['Subject'] = email.header.Header(subject)
+        message['From'] = self.user
+        message['To'] = to
+
+        smtp = smtplib.SMTP(self.host, port=self.port)
+        smtp.login(self.user, self.password)
+        smtp.sendmail(self.user, to, message.as_string())
+        smtp.close()
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--to", help="收件人", type=str, required=True)
+    parser.add_argument("--subject", help="主题", type=str, required=True)
+    parser.add_argument("--content", help="邮件内容", type=str, required=True)
+    args = parser.parse_args()
+
+    hletc = os.environ.get("HLETC", "~/hatlonely/etc")
+    mailsender = MailSender('{0}/pysendmail.conf'.format(hletc))
+    mailsender.send(args.to, args.subject, args.content)
+
+
+if __name__ == '__main__':
+    main()
+

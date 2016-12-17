@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+curl -s http://1212.ip138.com/ic.asp | iconv -f gb2312 -t utf-8 | grep -Eo "[0-9]+.[0-9]+.[0-9]+.[0-9]+"
+
