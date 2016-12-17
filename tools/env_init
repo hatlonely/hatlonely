@@ -1,0 +1,55 @@
+#!/usr/bin/env sh
+
+function LogInfo() {
+    echo "INFO [$(date +"%Y-%m-%d %H:%M:%S")] \033[32m$1\033[0m"
+}
+
+function LogWarn() {
+    echo "INFO [$(date +"%Y-%m-%d %H:%M:%S")] \033[31m$1\033[0m"
+}
+
+function LogTrac() {
+    echo "INFO [$(date +"%Y-%m-%d %H:%M:%S")] $1"
+}
+
+function InstallBrew() {
+    type brew 1>/dev/null 2>&1 && LogTrac "brew already installed" && return 0
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" &&
+    LogInfo "$(type brew)" && return 0
+    LogWarn "install brew failed"
+    return 255
+}
+
+function InstallPython3() {
+    type python3 1>/dev/null 2>&1 && LogTrac "python3 aready installed" && return 0
+    brew install python3 && LogInfo "$(type python3)" && return 0
+    LogWarn "install python3 failed"
+    return 255
+}
+
+function InstallPython3Libs() {
+    local python3LibsToInstall="
+        httplib2
+        pyquery
+    "
+
+    local python3LibsInstalled=$(pip3 list --format=columns)
+
+    for plib in $python3LibsToInstall; do
+        if [[ $(echo $python3LibsInstalled | grep $plib | wc -l) -ne 0 ]]; then
+            LogTrac "$plib already installed"
+        else
+            pip3 install $plib && LogInfo "$plib install success" || LogWarn "$plib install failed"
+        fi
+    done
+
+    return 0
+}
+
+function Main() {
+    InstallBrew
+    InstallPython3
+    InstallPython3Libs
+}
+
+Main
