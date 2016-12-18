@@ -12,7 +12,7 @@ function LogTrac() {
     echo "INFO [$(date +"%Y-%m-%d %H:%M:%S")] $1"
 }
 
-function yum_install() {
+function YumInstall() {
     yum install zsh
     yum install git
     yum install vim
@@ -26,7 +26,7 @@ function yum_install() {
     sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 }
 
-function install_python3 {
+function InstallPython3 {
     wget https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tgz
     tar -xzvf Python-3.5.2.tgz && cd Python-3.5.2 &&
     ./configure && make && make install
