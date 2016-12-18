@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+function LogInfo() {
+    echo "INFO [$(date +"%Y-%m-%d %H:%M:%S")] \033[32m$1\033[0m"
+}
+
+function LogWarn() {
+    echo "INFO [$(date +"%Y-%m-%d %H:%M:%S")] \033[31m$1\033[0m"
+}
+
+function LogTrac() {
+    echo "INFO [$(date +"%Y-%m-%d %H:%M:%S")] $1"
+}
+
+function yum_install() {
+    yum install zsh
+    yum install git
+    yum install vim
+    yum install wget
+    yum install gcc gcc-c++
+    yum install make
+    yum install zlib zlib-devel
+    yum install openssl openssl-devel
+    yum install samba-client samba samba-common
+    # oh my zsh
+    sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+}
+
+function install_python3 {
+    wget https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tgz
+    tar -xzvf Python-3.5.2.tgz && cd Python-3.5.2 &&
+    ./configure && make && make install
+}
