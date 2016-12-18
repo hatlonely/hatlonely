@@ -11,7 +11,8 @@ function Clean() {
 function Pack() {
     mkdir -p output
     mkdir -p output/data
-    Build && mv hellowords output && cp data/one.txt output/data/one.txt
+    mkdir -p output/bin
+    Build && mv hellowords output/bin && cp data/one.txt output/data/one.txt
 }
 
 function Help() {
