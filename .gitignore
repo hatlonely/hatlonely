@@ -7,3 +7,4 @@ hellowords/spider/one/conf/one.progress
 bin/
 output/
 .project
+node_modules/

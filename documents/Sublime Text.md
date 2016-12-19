@@ -32,9 +32,9 @@ package control 是一个插件安装管理软件
 1. ctrl + ` 调出 console
 2. 粘贴如下代码并回车
 
-``` python
-import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())
-```
+    ``` python
+    import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())
+    ```
 
 package control 使用
 
@@ -50,13 +50,13 @@ package control 使用
 
 ### markdown 支持
 
-1. markdown-editing/markdown preview/table editor/markdow extended
+markdown-editing/markdown preview/table editor/markdow extended
 
 table editor 用法：首先需要用ctrl + shift + p打开这个能
-
-    Table Editor: Enable for current syntax 
-    Table Editor: Enable for current view 
-    Table Editor: Set table syntax ... for current view
-
+```
+Table Editor: Enable for current syntax 
+Table Editor: Enable for current view 
+Table Editor: Set table syntax ... for current view
+```
 然后就按tab来自动完成
 
