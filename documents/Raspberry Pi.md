@@ -17,3 +17,25 @@
 3. 关闭防火墙，`sudo systemctl stop firewalld.service`
 4. 启动 samba 服务， `sudo systemctl start smb nmb`
 5. 添加 samba 用户，`sudo smbpasswd -a hatlonely`
+
+## centos 免密码登陆
+
+1. 客户机生成公钥文件，`ssh-keygen`
+2. 服务器添加信任关系，将客户机上的 `~/.ssh/id_rsa.pub` 复制到服务器上的 ~/.ssh/authorized_keys 中，可以在客户机上执行如下命令
+
+```
+cat ~/.ssh/id_rsa.pub | ssh 192.168.0.106 "cat - >> ~/.ssh/authorized_keys
+```
+
+3. 修改服务器sshd配置文件
+
+```
+RSAAuthentication yes
+PubkeyAuthentication yes
+AuthorizedKeysFile  .ssh/authorized_keys
+PasswordAuthentication no   # 关闭密码认证
+```
+
+4. 服务器重启 sshd 服务，`systemctl restart sshd.service`
+
+
