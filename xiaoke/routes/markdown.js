@@ -14,6 +14,12 @@ marked.setOptions({
     smartypants: true
 });
 
+marked.setOptions({
+    highlight: function(code) {
+        return require('highlight.js').highlightAuto(code).value;
+    }
+});
+
 router.get('/', function(req, res, next) {
     doc = req.query.d
     fs.readFile('../documents/' + doc, 'utf-8', (err, data) => {
