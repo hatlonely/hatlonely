@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title> hatlonely的博客 </title>
+</head>
+<body>
+
+<ul>
+<% docs.forEach(function(doc){ %>
+    <li><a href="/services/markdown?d=<%= doc %>"><%= doc %></a></li>
+<% }) %>
+</ul>
+
+</body>
+</html>
