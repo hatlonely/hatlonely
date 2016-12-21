@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="/marked/marked.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/highlight.js/styles/solarized-light.css">
+    <script>
+        $(document).ready(function() {
+            hljs.initHighlightingOnLoad();
+
+            marked.setOptions({
+                renderer: new marked.Renderer(),
+                gfm: true,
+                tables: true,
+                breaks: true,
+                pedantic: true,
+                sanitize: true,
+                smartLists: true,
+                smartypants: true
+            });
+
+            marked.setOptions({
+                highlight: function(code) {
+                    return hljs.highlightAuto(code).value;
+                }
+            });
+
+            $.ajax({
+                url: "<%= url %>",
+                dataType: "json",
+                success: function(data) {
+                    console.log(data.markdown);
+                    $("#markdown").html(marked(data.markdown));
+                }
+            });
+        });
+    </script>
+    <title> <%= title %> </title>
+</head>
+<body>
+    <div id="markdown"></div>
+</body>
+</html>
