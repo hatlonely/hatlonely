@@ -42,9 +42,9 @@ $ git push origin master    # 上传
 
 ## ssh配置
 
-1. $ ssh-keygen -t rsa -C "hatlonely@gmail.com"  => 在~/.ssh文件夹中产生id\_rsa.pub和id\_rsa
-2. 在网页上登录：<https://github.com/>，Edit Your Profile -> SSH Keys -> Add SSH key
-3. 复制1中id_rsa.pub总的内容到Key中
+1. $ `ssh-keygen -t rsa -C "hatlonely@gmail.com"` => 在`~/.ssh`文件夹中产生`id_rsa.pub`和`id_rsa`
+2. 在网页上登录：<https://github.com/>，`Edit Your Profile` -> `SSH Keys` -> `Add SSH key`
+3. 复制1中`id_rsa.pub`总的内容到Key中
 
 ## 其他
 
