@@ -1,10 +1,4 @@
----
-title: javascrpit权威指南
-date: 2016-06-08 13:07:44
-updated: 2016-06-08 13:07:44
-categories: 编程语言
-tags: [javascript, 编程语言]
----
+# javascrpit权威指南
 
 Davivd Flanagan 著 淘宝前端团队 译
 

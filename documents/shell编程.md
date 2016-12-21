@@ -1,10 +1,4 @@
----
-title: shell编程
-date: 2016-06-08 13:56:50
-updated: 2016-06-08 13:56:50
-categories: 编程语言
-tags: [shell, linux, 编程语言]
----
+# shell编程
 
 ## 变量
 

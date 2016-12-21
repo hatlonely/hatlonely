@@ -1,10 +1,4 @@
----
-title: Objective-C基础教程
-date: 2016-06-08 14:22:43
-updated: 2016-06-08 14:22:43
-categories: 编程语言
-tags: [objective-c, 编程语言, ios]
----
+# Objective-C基础教程
 
 Soctt Knaster & Waqar Malik & Mark Dalrymple 著 周庆成 译
 

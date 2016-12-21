@@ -1,10 +1,4 @@
----
-title: boost赋值
-date: 2016-06-08 13:51:36
-updated: 2016-06-08 13:51:36
-categories: 编程语言
-tags: [c++, boost, 编程语言]
----
+# boost赋值
 
 boost::assign库提供更方便更简单的对容器的赋值操作
 

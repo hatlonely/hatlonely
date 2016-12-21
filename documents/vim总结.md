@@ -1,10 +1,4 @@
----
-title: vim总结
-date: 2016-06-08 14:47:04
-updated: 2016-06-08 14:47:04
-categories: linux
-tags: [vim, linux]
----
+# vim总结
 
 ## 光标移动
 

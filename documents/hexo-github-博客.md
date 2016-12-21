@@ -1,10 +1,4 @@
----
-title: hexo + github 博客
-date: 2016-06-07 20:29:36
-updated: 2016-06-13 16:01:58
-categories: 工具
-tags: [hexo, 博客]
----
+# hexo + github 博客
 
 ## 创建 github 仓库
 

@@ -1,10 +1,4 @@
----
-title: mysql常用命令
-date: 2016-06-08 14:32:55
-updated: 2016-06-08 14:32:55
-categories: 数据存储
-tags: [mysql, 数据存储]
----
+# mysql常用命令
 
 ## 用户管理
 

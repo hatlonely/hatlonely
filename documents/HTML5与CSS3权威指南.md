@@ -1,10 +1,4 @@
----
-title: HTML5与CSS3权威指南
-date: 2016-06-08 13:26:42
-updated: 2016-06-08 13:26:42
-categories: 编程语言
-tags: [html, css, web, 编程语言]
----
+# HTML5与CSS3权威指南
 
 陆凌牛 著
 

@@ -1,9 +1,4 @@
----
-title: nodejs指南
-date: 2016-06-07 21:07:15
-categories: 编程语言
-tags: [nodejs, javascript, 编程语言]
----
+# nodejs指南
 
 BYVoid 编著
 

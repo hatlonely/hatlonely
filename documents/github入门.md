@@ -1,10 +1,4 @@
----
-title: github入门
-date: 2016-06-08 15:23:28
-updated: 2016-06-08 15:23:28
-categories: 工具
-tags: [github]
----
+# github入门
 
 ## git多人协作
 

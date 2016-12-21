@@ -1,10 +1,4 @@
----
-title: JoinToString的实现
-date: 2016-06-13 11:35:59
-updated: 2016-06-13 11:35:59
-categories: 编程语言
-tags: [c++, 编程语言, 字符串, 模板]
----
+# JoinToString的实现
 
 ## 问题场景
 

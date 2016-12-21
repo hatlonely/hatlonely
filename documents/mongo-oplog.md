@@ -1,9 +1,4 @@
----
-title: mongo oplog
-date: 2016-06-08 10:26:00
-categories: 数据存储
-tags: [mongo, oplog]
----
+# mongo oplog
 
 ## MongoDB oplog
 

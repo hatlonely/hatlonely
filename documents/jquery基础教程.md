@@ -1,10 +1,4 @@
----
-title: jquery基础教程
-date: 2016-06-07 22:37:14
-categories: 编程语言
-tags: [jquery, javascript]
-comments: true
----
+# jquery基础教程
 
 [美] Jonathan Chaffer  Karl Swedberg 著  李松峰 译
 

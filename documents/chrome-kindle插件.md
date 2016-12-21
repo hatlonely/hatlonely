@@ -1,10 +1,4 @@
----
-title: chrome kindle插件
-date: 2016-06-08 15:06:59
-updated: 2016-06-08 15:06:59
-categories: 工具
-tags: [chrome, kindle]
----
+# chrome kindle插件
 
 ## chrome kindle 插件
 
