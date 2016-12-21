@@ -21,7 +21,7 @@ marked.setOptions({
 });
 
 router.get('/', function(req, res, next) {
-    doc = req.query.d
+    doc = req.query.doc;
     fs.readFile('../documents/' + doc, 'utf-8', (err, data) => {
         if (err) {
             res.render('error', {

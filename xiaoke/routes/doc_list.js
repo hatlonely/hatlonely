@@ -1,11 +1,22 @@
 var fs = require('fs');
 var express = require('express');
 var router = express.Router();
+var querystring = require('querystring');
+
+var docsDirectory = '../documents/';
 
 router.get('/', function(req, res, next) {
-    fs.readdir('../documents', function(err, files) {
+    fs.readdir(docsDirectory, function(err, files) {
+        var items = [];
+        for (i in files) {
+            item = {
+                'doc': files[i],
+                'query': querystring.encode({doc: files[i]})
+            };
+            items.push(item);
+        }
         res.render('doc_list', {
-            'docs': files,
+            'items': items
         });
     });
 });
