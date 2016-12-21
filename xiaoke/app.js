@@ -24,7 +24,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
 
-app.use('/services/doc_list', doc_list);
+app.use('/', doc_list);
 app.use('/services/markdown', markdown);
 app.use('/services/mdsource', mdsource);
 
