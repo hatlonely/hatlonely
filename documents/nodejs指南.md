@@ -79,7 +79,7 @@ Node.js是一个基于Chrome JavaScript运行时建立的平台， 用于方便�
     ```
 - Node.js事件循环机制
 
-    ![event_loops](nodejs指南/event_loops.jpg)
+    ![event_loops](/event_loops.jpg)
 
 - 模块和包
 
