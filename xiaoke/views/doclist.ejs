@@ -11,10 +11,7 @@
                 url: "<%= url %>",
                 dataType: "json",
                 success: function(data) {
-                    console.log(data);
                     for (i in data) {
-                        console.log(i);
-                        console.log(data[i]);
                         $('#doclist').append('<li><a href="' + data[i].url + '">' + data[i].doc + '</a></li>')
                     }
                 }
