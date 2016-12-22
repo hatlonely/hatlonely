@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://apps.bdimg.com/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.3/themes/default/style.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jstree/3.3.3/jstree.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/highlight.js/styles/solarized-light.css">
+    <script>
+        $(document).ready(function() {
+            hljs.initHighlightingOnLoad();
+
+            $.ajax({
+                url: "<%= url %>",
+                success: function(data) {
+                    $('#code').html(data)
+                    $('#code').each(function(i, block) {
+                        hljs.highlightBlock(block);
+                    });
+                }
+            });
+        });
+    </script>
+    <title> <%= title %> </title>
+</head>
+<body>
+    <pre id="code"></pre>
+</body>
+</html>

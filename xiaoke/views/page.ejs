@@ -5,7 +5,7 @@
     <script src="http://apps.bdimg.com/libs/highlight.js/8.4/highlight.min.js"></script>
     <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/stylesheets/style.css">
-    <link rel="stylesheet" href="/highlight.js/styles/solarized-light.css">
+    <link rel="stylesheet" href="/highlight.js/styles/hybrid.css">
     <script>
         $(document).ready(function() {
             hljs.initHighlightingOnLoad();
@@ -31,8 +31,8 @@
                 url: "<%= url %>",
                 dataType: "json",
                 success: function(data) {
-                    console.log(data.markdown);
                     $("#markdown").html(marked(data.markdown));
+                    $("pre code").addClass("hljs")
                 }
             });
         });
