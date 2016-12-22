@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: "<%= url %>",
+                dataType: "json",
+                success: function(data) {
+                    console.log(data);
+                    for (i in data) {
+                        console.log(i);
+                        console.log(data[i]);
+                        $('#doclist').append('<li><a href="' + data[i].url + '">' + data[i].doc + '</a></li>')
+                    }
+                }
+            });
+        });
+    </script>
+
+    <title> 文章列表 </title>
+</head>
+<body>
+
+    <ul id="doclist"></ul>
+
+</body>
+</html>
