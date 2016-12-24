@@ -2,7 +2,7 @@ var config = {
     'mysql': {
         host: '192.168.0.106',
         user: 'hatlonely',
-        password: '12345678',
+        password: process.env['PIPASSWD'] || '12345678',
         database: 'hatlonely'
     }
 }
