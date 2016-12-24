@@ -2,10 +2,12 @@
 <html>
 <head>
     <script src="/marked/marked.min.js"></script>
-    <script src="http://apps.bdimg.com/libs/highlight.js/8.4/highlight.min.js"></script>
-    <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <link rel="stylesheet" href="/highlight.js/styles/hybrid.css">
+    <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/bootswatch/3.3.7/paper/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/highlight.js/styles/foundation.css">
     <script>
         $(document).ready(function() {
             hljs.initHighlightingOnLoad();
@@ -32,7 +34,7 @@
                 dataType: "json",
                 success: function(data) {
                     $("#markdown").html(marked(data.markdown));
-                    $("pre code").addClass("hljs")
+                    // $("pre code").addClass("hljs")
                 }
             });
         });
@@ -40,6 +42,10 @@
     <title> <%= title %> </title>
 </head>
 <body>
-    <div id="markdown"></div>
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3" id="markdown"></div>
+    </div>
+
 </body>
 </html>
