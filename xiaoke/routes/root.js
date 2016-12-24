@@ -9,19 +9,23 @@ router.get('/', function(req, res, next) {
     });
 });
 
-router.get('/page', function (req, res, next) {
+router.get('/page', function(req, res, next) {
     doc = req.query.doc;
     res.render('page', {
         'title': doc,
-        'url': '/services/mdsource?' + querystring.encode({doc: req.query.doc})
+        'url': '/services/mdsource?' + querystring.encode({
+            doc: req.query.doc
+        })
     });
 });
 
-router.get('/code', function (req, res, next) {
+router.get('/code', function(req, res, next) {
     doc = req.query.doc;
     res.render('code', {
         'title': doc,
-        'url': '/services/code?' + querystring.encode({doc: req.query.doc})
+        'url': '/services/code?' + querystring.encode({
+            doc: req.query.doc
+        })
     });
 });
 

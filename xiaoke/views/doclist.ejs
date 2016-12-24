@@ -14,8 +14,16 @@
                 url: "<%= url %>",
                 dataType: "json",
                 success: function(data) {
+                    data.sort(function (item1, item2) {
+                        return item1['views'] < item2['views'] ? 1 : -1;
+                    });
                     for (i in data) {
-                        $('#doclist').append('<li><a href="' + data[i].url + '">' + data[i].doc + '</a></li>')
+                        $('#doclist').append(''
+                            + '<li class="list-group-item">'
+                            +   '<span class="badge">' + data[i].views + '</span>'
+                            +   '<a href="' + data[i].url + '">' + data[i].doc + '</a>'
+                            + '</li>'
+                        )
                     }
                 }
             });
@@ -28,7 +36,7 @@
 
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <ul id="doclist"></ul>
+            <ul class="list-group" id="doclist"></ul>
         </div>
     </div>
 

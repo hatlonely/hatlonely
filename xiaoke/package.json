@@ -15,6 +15,7 @@
     "serve-favicon": "~2.3.0",
     "marked": "latest",
     "ejs": "latest",
-    "highlight.js": "latest"
+    "highlight.js": "latest",
+    "mysql": "latest"
   }
 }

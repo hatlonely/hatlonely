@@ -1,5 +1,32 @@
 # mysql常用命令
 
+## mysql 安装
+
+1 安装和启动
+
+``` sh
+sudo yum install mariadb mariadb-server
+sudo systemctl start mariadb
+```
+
+2. 修改root密码
+
+``` sh
+# 第一次设置密码
+sudo mysqladmin -u root password 123456
+
+# 修改密码
+sudo mysqladmin -u root -p password 123456
+```
+
+3. 创建用户
+
+``` sql
+CREATE USER 'hatlonely'@'192.168.0.%' IDENTIFIED BY '123456';
+CREATE DATABASE IF NOT EXISTS hatlonely DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+GRANT ALL PRIVILEGES ON hatlonely.* TO 'hatlonely'@'192.168.0.%';
+```
+
 ## 用户管理
 
 1. 创建用户

@@ -1,9 +1,4 @@
----
-title: redis命令参考
-date: 2016-06-08 11:32:52
-categories: 数据存储
-tags: [redis, 数据存储]
----
+# redis命令参考
 
 ## key
 
