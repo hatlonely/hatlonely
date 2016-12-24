@@ -1,12 +1,12 @@
-var fs = require('fs');
-var marked = require('marked');
-var express = require('express');
+var fs          = require('fs');
+var marked      = require('marked');
+var express     = require('express');
 var querystring = require('querystring');
-var mysql = require('mysql');
-var crypto = require('crypto');
-var config = require('../config/xiaoke');
-var cache = require('../module/cache')
-var docsModule = require('../module/docs');
+var mysql       = require('mysql');
+var crypto      = require('crypto');
+var config      = require('../config/xiaoke');
+var cache       = require('../module/cache')
+var docsModule  = require('../module/docs');
 
 var router = express.Router();
 

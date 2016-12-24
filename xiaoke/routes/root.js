@@ -1,7 +1,7 @@
-var fs = require('fs');
-var express = require('express');
+var fs          = require('fs');
+var express     = require('express');
 var querystring = require('querystring');
-var router = express.Router();
+var router      = express.Router();
 
 router.get('/', function(req, res, next) {
     res.render('doclist', {

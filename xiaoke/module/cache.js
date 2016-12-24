@@ -1,4 +1,4 @@
-var mysql = require('mysql');
+var mysql  = require('mysql');
 var config = require('../config/xiaoke');
 
 var cache = {}

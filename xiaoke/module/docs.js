@@ -1,6 +1,6 @@
-var mysql = require('mysql');
+var mysql  = require('mysql');
 var config = require('../config/xiaoke');
-var cache = require('./cache');
+var cache  = require('./cache');
 var crypto = require('crypto');
 
 function md5(text) {
