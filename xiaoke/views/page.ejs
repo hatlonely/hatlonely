@@ -33,7 +33,8 @@
                 url: "<%= url %>",
                 dataType: "json",
                 success: function(data) {
-                    $("#markdown").html(marked(data.markdown));
+                    $('#markdown').html(marked(data.markdown));
+                    $('table').addClass('table table-striped table-hover')
                 }
             });
         });
