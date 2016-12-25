@@ -23,6 +23,7 @@ function init() {
             for (i in rows) {
                 cache["docs"][rows[i].title] = rows[i].views
             }
+            connection.destroy();
         });
     })
 }
