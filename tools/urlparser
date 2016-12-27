@@ -1,4 +1,5 @@
 #!/usr/bin/env node
 
 var url = require('url');
-console.log(JSON.stringify(url.parse(process.argv[2], true).query, null, 4))
+obj = url.parse(process.argv[2], true)
+console.log(JSON.stringify({query: obj.query, host: obj.host}, null, 4))
