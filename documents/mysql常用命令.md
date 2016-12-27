@@ -5,8 +5,14 @@
 1 安装和启动
 
 ``` sh
+# 安装
 sudo yum install mariadb mariadb-server
+
+# 启动
 sudo systemctl start mariadb
+
+# 开机启动
+sudo systemctl enable mariadb
 ```
 
 2. 修改root密码
