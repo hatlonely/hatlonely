@@ -16,6 +16,7 @@
     "marked": "latest",
     "ejs": "latest",
     "highlight.js": "latest",
-    "mysql": "latest"
+    "mysql": "latest",
+    "async": "latest"
   }
 }
