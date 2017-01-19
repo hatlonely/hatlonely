@@ -13,6 +13,6 @@
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0",
-    "level": "latest"
+    "level": "^1.5.0"
   }
 }
