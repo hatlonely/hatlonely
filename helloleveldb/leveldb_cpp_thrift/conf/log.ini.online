@@ -1,0 +1,27 @@
+log4cplus.logger.info=INFO, InfoAppender
+log4cplus.appender.InfoAppender=log4cplus::DailyRollingFileAppender
+log4cplus.appender.InfoAppender.File=./log/leveldb_cpp_thrift.info
+log4cplus.appender.InfoAppender.Schedule=HOURLY
+log4cplus.appender.InfoAppender.Append=true
+log4cplus.appender.InfoAppender.immediateFlush=false
+log4cplus.appender.InfoAppender.layout=log4cplus::PatternLayout
+log4cplus.appender.InfoAppender.layout.ConversionPattern=%-4p [%t] %D{%Y-%m-%d %H:%M:%S}  %F:%L  %m%n
+
+log4cplus.logger.warn=DEBUG, WarnAppender
+log4cplus.appender.WarnAppender=log4cplus::DailyRollingFileAppender
+log4cplus.appender.WarnAppender.File=./log/leveldb_cpp_thrift.warn
+log4cplus.appender.WarnAppender.Schedule=HOURLY
+log4cplus.appender.WarnAppender.Append=true
+log4cplus.appender.WarnAppender.immediateFlush=false
+log4cplus.appender.WarnAppender.layout=log4cplus::PatternLayout
+log4cplus.appender.WarnAppender.layout.ConversionPattern=%-4p [%t] %D{%Y-%m-%d %H:%M:%S}  %F:%L  %m%n
+
+log4cplus.logger.print=DEBUG, PrintAppender
+log4cplus.appender.PrintAppender=log4cplus::DailyRollingFileAppender
+log4cplus.appender.PrintAppender.File=./log/leveldb_cpp_thrift.print
+log4cplus.appender.PrintAppender.Schedule=HOURLY
+log4cplus.appender.PrintAppender.Append=true
+log4cplus.appender.PrintAppender.immediateFlush=true
+log4cplus.appender.PrintAppender.layout=log4cplus::PatternLayout
+log4cplus.appender.PrintAppender.layout.ConversionPattern=%-4p [%t] %D{%Y-%m-%d %H:%M:%S}  %F:%L  %m%n
+
