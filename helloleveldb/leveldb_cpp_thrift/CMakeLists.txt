@@ -27,16 +27,16 @@ INCLUDE_DIRECTORIES(
     "${LEVELDB_CPP_THRIFT_SOURCE_DIR}/${WORK_ROOT}/third/gflags-v2.2.0/include"
     "${LEVELDB_CPP_THRIFT_SOURCE_DIR}/${WORK_ROOT}/third/libconfig-1.5/include"
     "${LEVELDB_CPP_THRIFT_SOURCE_DIR}/${WORK_ROOT}/third/log4cplus-1.2.0/include"
-    "/usr/local/include"
+    "${LEVELDB_CPP_THRIFT_SOURCE_DIR}/${WORK_ROOT}/third/boost_1_63_0/include"
 )
 
 LINK_DIRECTORIES(
-    "/usr/local/lib"
     "${LEVELDB_CPP_THRIFT_SOURCE_DIR}/${WORK_ROOT}/third/leveldb-v1.19/lib"
     "${LEVELDB_CPP_THRIFT_SOURCE_DIR}/${WORK_ROOT}/third/thrift-0.10.0/lib"
     "${LEVELDB_CPP_THRIFT_SOURCE_DIR}/${WORK_ROOT}/third/gflags-v2.2.0/lib"
     "${LEVELDB_CPP_THRIFT_SOURCE_DIR}/${WORK_ROOT}/third/libconfig-1.5/lib"
     "${LEVELDB_CPP_THRIFT_SOURCE_DIR}/${WORK_ROOT}/third/log4cplus-1.2.0/lib"
+    "${LEVELDB_CPP_THRIFT_SOURCE_DIR}/${WORK_ROOT}/third/boost_1_63_0/lib"
 )
 
 ADD_DEFINITIONS(

@@ -104,6 +104,17 @@ function InstallGflags() {
     Warn "install $output fail" && return 255
 }
 
+function InstallBoost() {
+    output="boost_1_63_0"
+    [[ -e $output ]] && Info "$output is exists" && return 0
+    mkdir -p $output/src && cd $output/src &&
+    wget https://nchc.dl.sourceforge.net/project/boost/boost/1.63.0/boost_1_63_0.tar.gz &&
+    tar -xzvf boost_1_63_0.tar.gz && cd boost_1_63_0 &&
+    ./bootstrap.sh && ./b2 install --prefix=$kWorkRoot/$output &&
+    Info "install $output succ" && return 0
+    Warn "install $output fail" && return 255
+}
+
 function Main() {
     (InstallLeveldb)
     (InstallLibevent)
@@ -113,6 +124,7 @@ function Main() {
     (InstallLog4cplus)
     (InstallGtest)
     (InstallGflags)
+    (InstallBoost)
 }
 
 Main
