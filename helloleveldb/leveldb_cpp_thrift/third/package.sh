@@ -26,7 +26,7 @@ function InstallLeveldb() {
 function InstallLibevent() {
     output="libevent-2.0.22"
     [[ -e $output ]] && Info "$output is exists" && return 0
-    mkdir $output/src && cd $output/src &&
+    mkdir -p $output/src && cd $output/src &&
     wget https://github.com/libevent/libevent/releases/download/release-2.0.22-stable/libevent-2.0.22-stable.tar.gz -O $output.tar.gz &&
     tar -xzvf $output.tar.gz && cd libevent-2.0.22-stable &&
     ./configure --prefix=$kWorkRoot/$output && make -j8 && make install && rm -rf output/lib/*.dylib &&
@@ -37,7 +37,7 @@ function InstallLibevent() {
 function InstallBison() {
     output="bison-2.5"
     [[ -e $output ]] && Info "$output is exists" && return 0
-    mkdir $output/src && cd $output/src &&
+    mkdir -p $output/src && cd $output/src &&
     wget http://ftp.gnu.org/gnu/bison/bison-2.5.tar.gz -O $output.tar.gz &&
     tar -xzvf $output.tar.gz && cd bison-2.5 &&
     ./configure --prefix=$kWorkRoot/$output && make -j8 && make install &&
@@ -49,10 +49,10 @@ function InstallThrift() {
     export PATH=$kWorkRoot/bison-2.5/bin:$PATH
     output="thrift-0.10.0"
     [[ -e $output ]] && Info "$output is exists" && return 0
-    mkdir $output/src && cd $output/src &&
+    mkdir -p $output/src && cd $output/src &&
     wget http://mirrors.cnnic.cn/apache/thrift/0.10.0/thrift-0.10.0.tar.gz -O $output.tar.gz &&
-    tar -xzvf $output.tar.gz && thrift-0.10.0 &&
-    ./configure CXXFLAGS='-g -O2' --prefix=$kWorkRoot/$output && make -j8 && make install &&
+    tar -xzvf $output.tar.gz && cd thrift-0.10.0 &&
+    ./configure CXXFLAGS='-g -O2' --enable-shared=no --with-nodejs=no --prefix=$kWorkRoot/$output && make -j8 && make install &&
     Info "install $output succ" && return 0
     Warn "install $output fail" && return 255
 }
