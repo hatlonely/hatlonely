@@ -29,4 +29,11 @@ router.get('/code', function(req, res, next) {
     });
 });
 
+router.get('/poetry', function(req, res, next) {
+    res.render('poetry', {
+        'title': '诗歌',
+        'url': '/services/poetry'
+    });
+})
+
 module.exports = router;

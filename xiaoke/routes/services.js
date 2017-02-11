@@ -7,6 +7,7 @@ var crypto      = require('crypto');
 var config      = require('../config/xiaoke');
 var cache       = require('../module/cache')
 var docsModule  = require('../module/docs');
+var poetry      = require('../module/poetry');
 
 var router = express.Router();
 
@@ -59,6 +60,10 @@ router.get('/doclist', function(req, res, next) {
         }
         res.send(items);
     });
-})
+});
+
+router.get('/poetry', function(req, res, next) {
+    res.send(poetry);
+});
 
 module.exports = router;

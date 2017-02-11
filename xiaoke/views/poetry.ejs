@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="//cdn.bootcss.com/highlight.js/9.9.0/highlight.min.js"></script>
+    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/bootswatch/3.3.7/darkly/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/bootswatch/3.3.7/paper/bootstrap.min.css" rel="stylesheet">
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: "<%= url %>",
+                dataType: "json",
+                success: function(poetrys) {
+                    for (i in poetrys) {
+                        var poetry = $(
+                            '<div class="col-md-6 col-md-offset-3"></div>'
+                        );
+                        var content = $(
+                            '<div class="col-md-9">' +
+                                poetrys[i].content.replace(/\n/g, '<br/><br/>') +
+                            '</div>'
+                        ).css(poetrys[i]['content-style']);
+                        var side = $(
+                            '<div class="col-md-3">' +
+                                poetrys[i].title + '<br/>' +
+                                poetrys[i].author + '<br/>' +
+                                poetrys[i].dynasty + '<br/>' +
+                            '</div>'
+                        ).css(poetrys[i]['side-style'])
+                        poetry.append(content);
+                        poetry.append(side);
+                        $("div#poetry").append(
+                            poetry
+                        )
+                        side.css({
+                            'height': poetry.height()
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+
+    <title> 文章列表 </title>
+</head>
+<body>
+
+    <div class="row" id="poetry"></div>
+
+</body>
+</html>
