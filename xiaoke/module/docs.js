@@ -35,7 +35,7 @@ var select = function(doc) {
             rows = connrows['rows']
             if (rows.length == 0) {
                 cache['docs'][doc] = 1;
-                connection.query('INSERT INTO docs (title, md5, views) VALUES (?, ?, 1)', doc, md5(doc), function(err, rows) {
+                connection.query('INSERT INTO docs (`title`, `md5`, `views`) VALUES (?, ?, 1)', [doc, md5(doc)], function(err, rows) {
                     callback(err, null);
                     connection.destroy();
                 });
