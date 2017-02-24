@@ -115,6 +115,15 @@ function InstallBoost() {
     Warn "install $output fail" && return 255
 }
 
+function InstallSnappy() {
+    output="snappy-1.1.3"
+    [[ -e $output ]] && Info "$output is exists" && return 0
+    mkdir -p $output/src && cd $output/src &&
+    wget https://codeload.github.com/google/snappy/zip/1.1.3 -O $output.zip &&
+    unzip $output.zip && cd snappy-1.1.3 &&
+    return 0
+}
+
 function Main() {
     (InstallLeveldb)
     (InstallLibevent)
@@ -125,6 +134,7 @@ function Main() {
     (InstallGtest)
     (InstallGflags)
     (InstallBoost)
+    (InstallSnappy)
 }
 
 Main
