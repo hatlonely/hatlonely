@@ -1,8 +1,8 @@
 var config = {
     'mysql': {
-        host: '192.168.0.106',
+        host: 'localhost',
         user: 'hatlonely',
-        password: process.env['PIPASSWD'] || '12345678',
+        password: process.env['HLDBPASSWD'] || '12345678',
         database: 'hatlonely'
     }
 }
