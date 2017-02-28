@@ -2,6 +2,9 @@
 
 ## 基本数据结构
 
+python是一种动态语言，变量有类型，但是变量不和类型绑定
+字面语法非常友好
+
 ```python
 anumber = 10
 averyBigNumber = 10000000000000000000000
@@ -17,6 +20,8 @@ adict = {
 ```
 
 ## 控制流
+
+python简洁的哲学，使用缩进来表示代码块，行尾不加分号，条件不加括号，减少敲击键盘的次数
 
 ```python
 number = 1
@@ -47,9 +52,9 @@ adict = {
     'age': 25
 }
 for key in adict:
-    print('{0} = {1}'.format(key, adict[key]))
+    print('{} = {}'.format(key, adict[key]))
 for key in sorted(adict.keys()):
-    print('{0} = {1}'.format(key, adict[key]))
+    print('{} = {}'.format(key, adict[key]))
 
 # while 循环
 while True:
@@ -59,6 +64,8 @@ while True:
 
 ## 函数
 
+支持以元组的形式返回多个值
+
 ```python
 def add(a, b):
     return a + b
@@ -67,13 +74,22 @@ def makePerson():
     return ('hatlonely', 25)
 
 name, age = makePerson
-print('name: {0}, age: {1}'.format(name, age))
+print('name: {}, age: {}'.format(name, age))
 ```
 
 ## lambda
 
+lambda可以理解为匿名函数，语法:
+    `lambda <参数列表>: <返回结果>`
+例如:
+    `lambda x, y: x + y`
+参数有两个 `x` 和 `y` 返回 `x + y`
+
 ```python
-add = lambda x,y: x + y
+add = lambda x, y: x + y
+# 相当于
+# def add(x, y):
+#     return x + y
 print(add(4,5))
 
 alist = [1, 2, 3, 4, 5]
@@ -82,6 +98,10 @@ print(alist)
 ```
 
 ## 类
+
+成员变量用 `self.xxx` 定义
+成员函数第一个参数都是 `self`，相当于 `this` 指针，指代对象本身，获取成员变量以及调用其他成员函数都需要通过这个参数
+`class Derive(Base)` 表示 `Derive` 从 `Base` 继承而来，继承的方法需要显式通过 `Base` 调用
 
 ```python
 class Base(object):
@@ -100,6 +120,8 @@ class Derive(Base):
 
 ## 异常
 
+使用 `raise` 抛出异常，使用 `try...except` 捕获异常
+
 ```python
 def div(x, y):
     if y == 0:
@@ -108,6 +130,6 @@ def div(x, y):
 
 try:
     div(2, 0)
-except Exception as e:
-    print(e)
+except ZeroDivisionError as error:
+    print(error)
 ```
