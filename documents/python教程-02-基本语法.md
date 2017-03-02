@@ -9,12 +9,13 @@ python是一种动态语言，变量有类型，但是变量不和类型绑定
 anumber = 10
 averyBigNumber = 10000000000000000000000
 astring = 'hatlonely'
-atuple = ('hatlonely', 'hatlonely@foxmail.com', 25, '13810245740')
-alist = ['hatlonely', 'hatlonely@foxmail.com', 25, '13810245740']
+atuple = ('hatlonely', 'hatlonely@foxmail.com', 25, '1234567890')
+alist = ['hatlonely', 'hatlonely@foxmail.com', 25, '1234567890']
+aset = {'hatlonely', 'hatlonely@foxmail.com', 25, '1234567890'}
 adict = {
     'name': 'hatlonely',
     'mail': 'hatlonely@foxmail.com',
-    'telphone': '13810245740',
+    'telphone': '1234567890',
     'age': 25
 }
 ```
@@ -38,7 +39,7 @@ else:
 for i in range(0, 10):
     print(i)
 
-alist = ['hatlonely', 'hatlonely@foxmail.com', 25, '13810245740']
+alist = ['hatlonely', 'hatlonely@foxmail.com', 25, '1234567890']
 for element in alist:
     print(element)
 
@@ -48,7 +49,7 @@ for line in open('1_hello_world.py', encoding='utf-8'):
 adict = {
     'name': 'hatlonely',
     'mail': 'hatlonely@foxmail.com',
-    'telphone': '13810245740',
+    'telphone': '1234567890',
     'age': 25
 }
 for key in adict:
@@ -73,7 +74,7 @@ def add(a, b):
 def makePerson():
     return ('hatlonely', 25)
 
-name, age = makePerson
+name, age = makePerson()
 print('name: {}, age: {}'.format(name, age))
 ```
 
@@ -110,12 +111,18 @@ class Base(object):
         print('construct base')
 
     def sayHello(self):
-        print('hello {0}'.format(self.name))
+        print('hello {}'.format(self.name))
+
+base = Base()
+base.sayHello()
 
 class Derive(Base):
     def __init__(self):
         Base.__init__(self)
         print('construct derive')
+
+derive = Derive()
+derive.sayHello()
 ```
 
 ## 异常
