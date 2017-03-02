@@ -29,8 +29,10 @@ sudo mysqladmin -u root -p password 123456
 
 ``` sql
 CREATE USER 'hatlonely'@'192.168.0.%' IDENTIFIED BY '123456';
+CREATE USER 'hatlonely'@'localhost' IDENTIFIED BY '123456';
 CREATE DATABASE IF NOT EXISTS hatlonely DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
 GRANT ALL PRIVILEGES ON hatlonely.* TO 'hatlonely'@'192.168.0.%';
+GRANT ALL PRIVILEGES ON hatlonely.* TO 'hatlonely'@'localhost';
 ```
 
 ## 用户管理
