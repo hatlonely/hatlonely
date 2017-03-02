@@ -1,4 +1,4 @@
-# git
+# Git
 
 分布式版本控制系统
 
@@ -67,9 +67,9 @@ git reset README.md
 git reset .
 ```
 
-## 版本控制tag
+## 版本
 
-查看所有的版本
+列出所有的版本
 
 ```
 git tag
@@ -101,7 +101,46 @@ git push origin v1.0.0.0
 git push origin --tags
 ```
 
-## 
+## 分支
 
+列出所有分支，-r查看远端的分支，-a查看所有的分支
+
+```
+git branch
+git branch -r
+git branch -a
+```
+
+创建本地分支，`git branch <new_branch>`
+
+```
+git branch hatlonely
+```
+
+切换分支
+
+```
+git checkout hatlonely
+```
+
+合并分支
+
+```
+git checkout master
+git merge hatlonely
+```
+
+重命名分支
+
+```
+git branch -m old_branch new_branch
+```
+
+删除分支，-r删除远端的分支
+
+```
+git branch -d hatlonely
+git branch -d -r hatlonely
+```
 
 
