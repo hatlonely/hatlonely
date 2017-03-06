@@ -143,4 +143,25 @@ git branch -d hatlonely
 git branch -d -r hatlonely
 ```
 
+## github
+
+世界上最大的代码托管平台，免费的git服务器，没用过github都不好意思说自己是程序员……
+
+1. 创建github账号
+
+    <https://github.com/>
+
+2. 创建ssh-keys
+
+    ```
+    ssh-keygen -t rsa
+    ```
+
+3. 添加ssh-key到github账号
+
+    复制`~/.ssh/id_rsa.pub`到`https://github.com/settings/keys` -> `New SSH key`
+
+
+
+
 
