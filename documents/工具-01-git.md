@@ -169,4 +169,9 @@ git branch -d -r hatlonely
 git config --global core.quotepath false
 ```
 
+`git status` 彩色显示
+
+```
+git config --global color.ui true
+```
 
