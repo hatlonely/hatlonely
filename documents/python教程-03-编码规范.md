@@ -26,24 +26,24 @@
 
 1. 文件命名，全小写加下划线(module_name)
 2. 类名，首字母大写驼峰命名(ClassName)
-3. 函数名，首字母大写驼峰命名(Function)
-4. 类方法，驼峰命名(methodName)
-5. 普通变量，驼峰命名(localVariable)
+3. 函数名，全小写加下划线(function)
+4. 类方法，全小写加下划线(method_name)
+5. 普通变量，全小写加下划线(local_variable)
 
     ```python
     #!/usr/bin/env python3
     # hello_world.py
 
     class HelloWorld(object):
-        def sayHello(name):
+        def say_hello(name):
             print('hello {}'.format(name))
 
-    def SayHello(name):
-        helloWord = HelloWorld()
-        helloWorld.sayHello(name)
+    def say_hello(name):
+        hello_world = HelloWorld()
+        hello_world.say_hello(name)
 
     def main():
-        SayHello('hatlonely')
+        say_hello('hatlonely')
 
     if __name__ == '__main__':
         main()
