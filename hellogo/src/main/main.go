@@ -1,9 +1,9 @@
 package main
 
 import (
-	"fmt"
+	"buildin"
 )
 
 func main() {
-	fmt.Println("hello world")
+	buildin.Main()
 }
