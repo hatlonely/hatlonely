@@ -7,7 +7,7 @@ python是一种动态语言，变量有类型，但是变量不和类型绑定
 
 ```python
 anumber = 10
-averyBigNumber = 10000000000000000000000
+avery_big_number = 10000000000000000000000
 astring = 'hatlonely'
 atuple = ('hatlonely', 'hatlonely@foxmail.com', 25, '1234567890')
 alist = ['hatlonely', 'hatlonely@foxmail.com', 25, '1234567890']
@@ -71,10 +71,10 @@ while True:
 def add(a, b):
     return a + b
 
-def makePerson():
+def make_person():
     return ('hatlonely', 25)
 
-name, age = makePerson()
+name, age = make_erson()
 print('name: {}, age: {}'.format(name, age))
 ```
 
@@ -110,11 +110,11 @@ class Base(object):
         self.name = 'hatlonely'
         print('construct base')
 
-    def sayHello(self):
+    def say_hello(self):
         print('hello {}'.format(self.name))
 
 base = Base()
-base.sayHello()
+base.say_hello()
 
 class Derive(Base):
     def __init__(self):
@@ -122,7 +122,7 @@ class Derive(Base):
         print('construct derive')
 
 derive = Derive()
-derive.sayHello()
+derive.say_hello()
 ```
 
 ## 异常

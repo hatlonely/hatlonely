@@ -161,7 +161,17 @@ git branch -d -r hatlonely
 
     复制`~/.ssh/id_rsa.pub`到`https://github.com/settings/keys` -> `New SSH key`
 
+## 问题解决
 
+`git status` 显示中文乱码
 
+```
+git config --global core.quotepath false
+```
 
+`git status` 彩色显示
+
+```
+git config --global color.ui true
+```
 
