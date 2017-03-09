@@ -7,7 +7,8 @@ namespace hl {
 LeveldbCppThriftHandler::LeveldbCppThriftHandler(boost::shared_ptr<TSocket> socket) : _socket(socket) {}
 
 void LeveldbCppThriftHandler::levelPut(const std::string& key, const std::string& value) {
-    auto status = LeveldbCppThriftFactory::db->Put(leveldb::WriteOptions(), key, value);
+    int dbindex = std::hash<std::string>{}(key) % LeveldbCppThriftFactory::dbnum;
+    auto status = LeveldbCppThriftFactory::db[dbindex]->Put(leveldb::WriteOptions(), key, value);
     if (!status.ok()) {
         LeveldbCppThriftException LeveldbCppThriftException;
         LeveldbCppThriftException.message = status.ToString();
@@ -18,7 +19,8 @@ void LeveldbCppThriftHandler::levelPut(const std::string& key, const std::string
 }
 
 void LeveldbCppThriftHandler::levelGet(std::string& value, const std::string& key) {
-    auto status = LeveldbCppThriftFactory::db->Get(leveldb::ReadOptions(), key, &value);
+    int dbindex = std::hash<std::string>{}(key) % LeveldbCppThriftFactory::dbnum;
+    auto status = LeveldbCppThriftFactory::db[dbindex]->Get(leveldb::ReadOptions(), key, &value);
     if (!status.ok()) {
         LeveldbCppThriftException LeveldbCppThriftException;
         LeveldbCppThriftException.message = status.ToString();
@@ -29,7 +31,8 @@ void LeveldbCppThriftHandler::levelGet(std::string& value, const std::string& ke
 }
     
 void LeveldbCppThriftHandler::levelDel(const std::string& key) {
-    auto status = LeveldbCppThriftFactory::db->Delete(leveldb::WriteOptions(), key);
+    int dbindex = std::hash<std::string>{}(key) % LeveldbCppThriftFactory::dbnum;
+    auto status = LeveldbCppThriftFactory::db[dbindex]->Delete(leveldb::WriteOptions(), key);
     if (!status.ok()) {
         LeveldbCppThriftException LeveldbCppThriftException;
         LeveldbCppThriftException.message = status.ToString();
@@ -38,17 +41,26 @@ void LeveldbCppThriftHandler::levelDel(const std::string& key) {
     }
     INFO("\tDel\t" << key << "\t" << "");
 }
-
-leveldb::DB* LeveldbCppThriftFactory::db = nullptr;
+    
+leveldb::DB** LeveldbCppThriftFactory::db = nullptr;
+int LeveldbCppThriftFactory::dbnum = 0;
 
 int LeveldbCppThriftFactory::init(const libconfig::Setting& setting) {
     leveldb::Options options;
     options.create_if_missing = true;
     std::string dbpath = setting["dbpath"].c_str();
-    leveldb::Status status = leveldb::DB::Open(options, dbpath, &db);
-    if (!status.ok()) {
-        WARN(status.ToString());
+    dbnum = setting["dbnum"];
+    if (dbnum <= 0) {
+        WARN("dbnum[" << dbnum << "] <= 0");
         return -1;
+    }
+    db = new leveldb::DB*[dbnum];
+    for (int i = 0; i < dbnum; i++) {
+        leveldb::Status status = leveldb::DB::Open(options, dbpath + "/" + std::to_string(i), db + i);
+        if (!status.ok()) {
+            WARN(status.ToString());
+            return -1;
+        }
     }
     
     return 0;

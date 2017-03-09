@@ -30,7 +30,8 @@ private:
     
 class LeveldbCppThriftFactory : public LeveldbCppThriftIfFactory {
 public:
-    static leveldb::DB* db;
+    static leveldb::DB** db;
+    static int dbnum;
     static int init(const libconfig::Setting& setting);
     virtual ~LeveldbCppThriftFactory();
     virtual LeveldbCppThriftIf* getHandler(const ::apache::thrift::TConnectionInfo& connectionInfo);

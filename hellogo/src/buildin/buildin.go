@@ -58,10 +58,36 @@ func Slice() {
 	fmt.Println(is)
 	is[1] = 33 // 修改
 	fmt.Println(is)
+
+	// 遍历
+	for idx, val := range is {
+		fmt.Println(idx, " => ", val)
+	}
+}
+
+func Dict() {
+	{
+		dict := map[string]int{
+			"zero":  0,
+			"one":   1,
+			"two":   2,
+			"three": 33,
+		}
+		dict["three"] = 3    // 修改key
+		dict["four"] = 4     // 增加key
+		delete(dict, "zero") // 删除key
+		fmt.Println(dict)
+
+		// 遍历
+		for key, val := range dict {
+			fmt.Println(key, " => ", val)
+		}
+	}
 }
 
 func Main() {
 	Strings()
 	Array()
 	Slice()
+	Dict()
 }
