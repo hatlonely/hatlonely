@@ -1,8 +1,12 @@
 package buildin
 
 import (
+	"container/list"
 	"fmt"
+	"math"
+	"math/rand"
 	"strings"
+	"time"
 )
 
 func Strings() {
@@ -85,9 +89,76 @@ func Dict() {
 	}
 }
 
+func ContainerList() {
+	l := list.New()
+	l.PushBack("hatlonely") // 从链表后面插入
+	l.PushBack(25)
+	l.PushBack("hatlonely@gmail.com")
+	l.PushBack(127.9)
+	l.InsertAfter("hello world", l.Back().Prev()) // 从元素后面插入
+	l.InsertBefore("list", l.Front())             // 从元素前面插入
+
+	l.Remove(l.Front()) // 删除
+
+	fmt.Println(l.Len())
+
+	// 顺序遍历
+	for e := l.Front(); e != nil; e = e.Next() {
+		fmt.Print(e.Value, ", ")
+	}
+	fmt.Println()
+	// 逆序便利
+	for e := l.Back(); e != nil; e = e.Prev() {
+		fmt.Print(e.Value, ",")
+	}
+	fmt.Println()
+}
+
+func Time() {
+	t1 := time.Now()
+	fmt.Println(t1)
+
+	unixtime := time.Now().Unix()
+	fmt.Println(unixtime)
+
+	unixtimenano := time.Now().UnixNano()
+	fmt.Println(unixtimenano)
+
+	yyyymmddhhmmss := time.Now().Format("2006-01-02 15:04:05")
+	rfc3399time := time.Now().Format(time.RFC3339)
+	fmt.Println(yyyymmddhhmmss, rfc3399time)
+
+	delta1, _ := time.ParseDuration("24h")
+	delta2, _ := time.ParseDuration("-24h")
+	t2 := t1.Add(delta1)
+	t3 := t1.Add(delta2)
+	delta3 := t1.Sub(t2)
+	fmt.Println(t2, t3, delta3, delta1+delta2)
+}
+
+func Math() {
+	{
+		rand.Seed(time.Now().Unix())
+		r1 := rand.Int()
+		r2 := rand.Intn(100)
+		f1 := rand.Float64()
+		f2 := rand.NormFloat64()
+		f3 := rand.ExpFloat64()
+		fmt.Println(r1, r2, f1, f2, f3)
+	}
+	{
+		f1 := math.Sin(math.Pi / 3)
+		f2 := math.Cos(math.Pi / 3)
+		fmt.Println(f1, f2)
+	}
+}
+
 func Main() {
 	Strings()
 	Array()
 	Slice()
 	Dict()
+	ContainerList()
+	Time()
+	Math()
 }
