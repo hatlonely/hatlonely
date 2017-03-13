@@ -1,6 +1,7 @@
 package buildin
 
 import (
+	"bufio"
 	"container/list"
 	"encoding/json"
 	"fmt"
@@ -199,6 +200,42 @@ func Url() {
 	fmt.Println(u)
 }
 
+func Bufio() {
+	{
+		file, _ := os.Open("src/main/main.go")
+		defer file.Close()
+		scanner := bufio.NewScanner(bufio.NewReader(file))
+		for scanner.Scan() {
+			fmt.Println(scanner.Text())
+		}
+		if err := scanner.Err(); err != nil {
+			fmt.Println(err)
+		}
+	}
+	{
+		file, _ := os.Open("src/main/main.go")
+		defer file.Close()
+		reader := bufio.NewReader(file)
+		for {
+			line, err := reader.ReadBytes('\n')
+			if err != nil {
+				break
+			}
+			fmt.Println(string(line))
+		}
+	}
+	{
+		file, _ := os.Open("src/main/main.go")
+		defer file.Close()
+		bytes, _ := ioutil.ReadAll(file)
+		fmt.Println(string(bytes))
+	}
+	{
+		bytes, _ := ioutil.ReadFile("src/main/main.go")
+		fmt.Println(string(bytes))
+	}
+}
+
 func Main() {
 	Strings()
 	Array()
@@ -210,4 +247,5 @@ func Main() {
 	Json()
 	Os()
 	Url()
+	Bufio()
 }
