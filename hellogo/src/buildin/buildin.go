@@ -2,9 +2,13 @@ package buildin
 
 import (
 	"container/list"
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"math"
 	"math/rand"
+	"net/url"
+	"os"
 	"strings"
 	"time"
 )
@@ -153,6 +157,48 @@ func Math() {
 	}
 }
 
+func Json() {
+	bytes := []byte(`{"name": "hatlonely", "skill": ["c++", "java", "python", "go"], "desc": "配置中心"}`)
+	var jsonobj map[string]interface{}
+	json.Unmarshal(bytes, &jsonobj)
+	fmt.Println(jsonobj)
+	fmt.Println(jsonobj["name"])
+	fmt.Println(jsonobj["skill"].([]interface{})[1])
+	for _, v := range jsonobj["skill"].([]interface{}) {
+		fmt.Println(v.(string))
+	}
+
+	str1, _ := json.Marshal(jsonobj)
+	str2, _ := json.MarshalIndent(jsonobj, "", "\t")
+	fmt.Println(string(str1))
+	fmt.Println(string(str2))
+}
+
+func Os() {
+	fmt.Println(os.Getpid())
+	fmt.Println(os.Getppid())
+	fmt.Println(os.Getuid())
+	fmt.Println(os.Getwd())
+	fmt.Println(os.Getenv("HOME"))
+
+	// 遍历一个目录
+	fileInfos, _ := ioutil.ReadDir("src/main")
+	for _, fileInfo := range fileInfos {
+		fmt.Println(fileInfo.Name())
+	}
+}
+
+func Url() {
+	u, _ := url.Parse("https://www.google.com/?q=hello+world")
+	fmt.Println(u.Scheme)
+	fmt.Println(u.Host)
+	fmt.Println(u.Query())
+	v := u.Query()
+	v.Set("q", "hello go")
+	u.RawQuery = v.Encode()
+	fmt.Println(u)
+}
+
 func Main() {
 	Strings()
 	Array()
@@ -161,4 +207,7 @@ func Main() {
 	ContainerList()
 	Time()
 	Math()
+	Json()
+	Os()
+	Url()
 }
