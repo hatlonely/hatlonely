@@ -2,10 +2,10 @@ package main
 
 import (
 	"buildin"
-	"test"
+	"configure"
 )
 
 func main() {
 	buildin.Main()
-	test.Main()
+	configure.Main()
 }
