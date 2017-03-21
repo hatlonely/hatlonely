@@ -10,6 +10,7 @@ import (
 	"math/rand"
 	"net/url"
 	"os"
+	"sort"
 	"strings"
 	"time"
 )
@@ -236,6 +237,12 @@ func Bufio() {
 	}
 }
 
+func Sort() {
+	ia := []int{4, 3, 2, 1}
+	sort.Ints(ia)
+	fmt.Println(ia)
+}
+
 func Main() {
 	Strings()
 	Array()
@@ -248,4 +255,5 @@ func Main() {
 	Os()
 	Url()
 	Bufio()
+	Sort()
 }
