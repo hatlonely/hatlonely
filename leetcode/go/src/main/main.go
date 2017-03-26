@@ -3,5 +3,6 @@ package main
 import "leetcode"
 
 func main() {
-	leetcode.TwoSum()
+	leetcode.TwoSumTest()
+	leetcode.AddTwoNumbersTest()
 }
