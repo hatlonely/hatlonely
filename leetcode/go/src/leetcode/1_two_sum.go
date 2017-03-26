@@ -37,6 +37,6 @@ func TwoSum() {
 	}
 	{
 		nums := []int{3, 2, 4}
-		fmt.Println(twoSum(nums, 6))
+		fmt.Println(twoSum(nums, 6)) // [1, 2]
 	}
 }
