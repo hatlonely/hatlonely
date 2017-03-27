@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
+export GOPATH=`pwd`
+
 function main() {
-    export GOPATH=`pwd`
-    go get github.com/Workiva/go-datastructures/...
-    go get github.com/paked/configure
+    go get -u -v github.com/Workiva/go-datastructures/...
+    go get -u -v github.com/paked/configure
 }
 
 main

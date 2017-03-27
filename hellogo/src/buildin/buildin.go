@@ -243,6 +243,31 @@ func Sort() {
 	fmt.Println(ia)
 }
 
+func Channel() {
+	c1 := make(chan int, 5)
+	c2 := make(chan int, 5)
+	go func() {
+		for i := 0; i < 10; i++ {
+			c1 <- i
+			c2 <- 100 + i
+			time.Sleep(time.Duration(1) * time.Second)
+		}
+	}()
+
+OuterLoop:
+	for {
+		select {
+		case i := <-c1:
+			fmt.Println(i)
+		case i := <-c2:
+			fmt.Println(i)
+		case <-time.Tick(time.Duration(2) * time.Second):
+			fmt.Println("timeout")
+			break OuterLoop
+		}
+	}
+}
+
 func Main() {
 	Strings()
 	Array()
@@ -256,4 +281,5 @@ func Main() {
 	Url()
 	Bufio()
 	Sort()
+	Channel()
 }
