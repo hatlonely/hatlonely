@@ -1,9 +1,10 @@
 package main
 
 import (
-	"buildin"
+	"murmur3"
 )
 
 func main() {
-	buildin.Main()
+	//buildin.Main()
+	murmur3.Main()
 }
