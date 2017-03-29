@@ -23,14 +23,14 @@ function install_protoc() {
 }
 
 function install_go_dependency() {
-#    go get -v -u github.com/golang/protobuf/proto github.com/golang/protobuf/protoc-gen-go &&
-#    go get -v -u google.golang.org/grpc &&
-#    go get -v -u github.com/cihub/seelog &&
-#    go get -v -u github.com/spf13/viper &&
-#    go get -v -u github.com/satori/go.uuid &&
-#    go get -v -u github.com/gsdocker/gsos/uuid &&
-#    go get -v -u github.com/syndtr/goleveldb/leveldb &&
-#    go get -v -u github.com/spaolacci/murmur3 &&
+    go get -v -u github.com/golang/protobuf/proto github.com/golang/protobuf/protoc-gen-go &&
+    go get -v -u google.golang.org/grpc &&
+    go get -v -u github.com/cihub/seelog &&
+    go get -v -u github.com/spf13/viper &&
+    go get -v -u github.com/satori/go.uuid &&
+    go get -v -u github.com/gsdocker/gsos/uuid &&
+    go get -v -u github.com/syndtr/goleveldb/leveldb &&
+    go get -v -u github.com/spaolacci/murmur3 &&
     go get -v -u gopkg.in/mgo.v2 &&
     info "install go dependency success" && return 0
     warn "install go dependency fail" && return 255

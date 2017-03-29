@@ -41,6 +41,11 @@ func Strings() {
 		fmt.Println(strings.Trim(text, " ton"))
 		fmt.Println(strings.Replace(text, " ", ", ", 1))
 	}
+	{
+		str := "0123456789"
+		str = str[:4] + str[5:]
+		fmt.Println(str)
+	}
 }
 
 func Array() {
@@ -243,6 +248,11 @@ func Sort() {
 	fmt.Println(ia)
 }
 
+func Search() {
+	fmt.Println(sort.SearchInts([]int{1, 4, 7, 8}, 7)) // 2
+	fmt.Println(sort.SearchInts([]int{1, 4, 7, 8}, 6)) // 2
+}
+
 func Channel() {
 	c1 := make(chan int, 5)
 	c2 := make(chan int, 5)
@@ -270,16 +280,17 @@ OuterLoop:
 
 func Main() {
 	Strings()
-	Array()
-	Slice()
-	Dict()
-	ContainerList()
-	Time()
-	Math()
-	Json()
-	Os()
-	Url()
-	Bufio()
+	//Array()
+	//Slice()
+	//Dict()
+	//ContainerList()
+	//Time()
+	//Math()
+	//Json()
+	//Os()
+	//Url()
+	//Bufio()
 	Sort()
-	Channel()
+	Search()
+	//Channel()
 }
