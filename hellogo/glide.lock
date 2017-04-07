@@ -1,0 +1,107 @@
+hash: 926c20956efce416ed196c77d495a87a3cb80e2b741ce9239670de802c392145
+updated: 2017-04-07T14:20:44.602276622+08:00
+imports:
+- name: github.com/davecgh/go-spew
+  version: 346938d642f2ec3594ed81d874461961cd0faa76
+  subpackages:
+  - spew
+- name: github.com/emirpasic/gods
+  version: f6c17b524822278a87e3b3bd809fec33b51f5b46
+  subpackages:
+  - containers
+  - lists
+  - lists/arraylist
+  - lists/doublylinkedlist
+  - lists/singlylinkedlist
+  - maps
+  - maps/hashbidimap
+  - maps/hashmap
+  - maps/treebidimap
+  - maps/treemap
+  - sets
+  - sets/hashset
+  - sets/treeset
+  - stacks
+  - stacks/arraystack
+  - stacks/linkedliststack
+  - trees
+  - trees/avltree
+  - trees/binaryheap
+  - trees/btree
+  - trees/redblacktree
+  - utils
+- name: github.com/hashicorp/hcl
+  version: 630949a3c5fa3c613328e1b8256052cbc2327c9b
+  subpackages:
+  - hcl/ast
+  - hcl/parser
+  - hcl/printer
+  - hcl/scanner
+  - hcl/strconv
+  - hcl/token
+  - json/parser
+  - json/scanner
+  - json/token
+- name: github.com/paked/configure
+  version: 9da232898a2e2ab136d81bb45554053f5b42fed4
+- name: github.com/philhofer/fwd
+  version: 98c11a7a6ec829d672b03833c3d69a7fae1ca972
+- name: github.com/pmezard/go-difflib
+  version: 792786c7400a136282c1664665ae0a8db921c6c2
+  subpackages:
+  - difflib
+- name: github.com/satori/go.uuid
+  version: 879c5887cd475cd7864858769793b2ceb0d44feb
+- name: github.com/spaolacci/murmur3
+  version: 0d12bf811670bf6a1a63828dfbd003eded177fce
+- name: github.com/stretchr/objx
+  version: 1a9d0bb9f541897e62256577b352fdbc1fb4fd94
+- name: github.com/stretchr/testify
+  version: 69483b4bd14f5845b5a1e55bca19e954e827f1d0
+  subpackages:
+  - assert
+  - http
+  - mock
+  - require
+- name: github.com/tinylib/msgp
+  version: 38a6f61a768dc24552dad94611923841b53acc4f
+  subpackages:
+  - gen
+  - msgp
+  - parse
+  - printer
+- name: github.com/ttacon/chalk
+  version: 76b3c8b611dea8f83e49e9ce81fc2b189e0ef3d2
+- name: github.com/Workiva/go-datastructures
+  version: ceededf711cf8d8a61cac7003a0f947546da4763
+  subpackages:
+  - augmentedtree
+  - batcher
+  - bitarray
+  - btree/palm
+  - btree/plus
+  - common
+  - fibheap
+  - futures
+  - hashmap/fastinteger
+  - list
+  - numerics/hilbert
+  - numerics/optimization
+  - queue
+  - rangetree
+  - rangetree/skiplist
+  - rtree
+  - set
+  - slice
+  - slice/skip
+  - sort
+  - threadsafe/err
+  - tree/avl
+  - trie/xfast
+  - trie/yfast
+- name: golang.org/x/tools
+  version: 24acc66eabead631b4e856255a9ad925549cee80
+  subpackages:
+  - go/ast/astutil
+  - imports
+testImports: []

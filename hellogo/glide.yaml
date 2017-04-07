@@ -1,6 +1,5 @@
 package: .
 import:
-- package: buildin
 - package: github.com/Workiva/go-datastructures
   version: ^1.0.34
   subpackages:
@@ -94,8 +93,6 @@ import:
   - printer
 - package: github.com/ttacon/chalk
   version: ^0.1.0
-- package: gods
 - package: golang.org/x/tools
   subpackages:
   - imports
-- package: murmur3
