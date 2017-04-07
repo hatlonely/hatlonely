@@ -1,11 +1,13 @@
 package main
 
 import (
-	"buildin"
 	"murmur3"
+	"buildin"
+	"gods"
 )
 
 func main() {
 	buildin.Main()
 	murmur3.Main()
+	gods.Main()
 }

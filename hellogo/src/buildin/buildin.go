@@ -10,6 +10,8 @@ import (
 	"math/rand"
 	"net/url"
 	"os"
+	"path"
+	"path/filepath"
 	"sort"
 	"strings"
 	"time"
@@ -77,6 +79,25 @@ func Slice() {
 	// 遍历
 	for idx, val := range is {
 		fmt.Println(idx, " => ", val)
+	}
+
+	{
+		s := []int{1, 2, 3}
+		func(s []int) {
+			s = append(s, 4)
+		}(s)
+		fmt.Println(s)
+		func(s *[]int) {
+			*s = append(*s, 4)
+		}(&s)
+		fmt.Println(s)
+	}
+
+	{
+		s := func() *[]int {
+			return &[]int{1, 2, 3}
+		}()
+		fmt.Println(s)
 	}
 }
 
@@ -193,6 +214,12 @@ func Os() {
 	for _, fileInfo := range fileInfos {
 		fmt.Println(fileInfo.Name())
 	}
+	fmt.Println(path.Join("src/", "main", "helloworld.go"))
+
+	fmt.Println(filepath.Base("src/main/helloworld.go"))
+	fmt.Println(filepath.Dir("src/main/helloworld.go"))
+	fmt.Println(filepath.Dir("src/main/"))
+	fmt.Println(filepath.Dir("src/main"))
 }
 
 func Url() {
@@ -278,8 +305,30 @@ OuterLoop:
 	}
 }
 
+func Switch() {
+	astr := "a"
+	switch astr {
+	case "a":
+		fmt.Println("a")
+	case "b":
+		fmt.Println("b")
+	}
+}
+
+func Random() {
+	for j := 0; j < 10; j++ {
+		rand.Seed(1234567)
+		l := []int{}
+		for i := 0; i < 9; i++ {
+			l = append(l, rand.Intn(100))
+		}
+		sort.Ints(l)
+		fmt.Println(l)
+	}
+}
+
 func Main() {
-	Strings()
+	//Strings()
 	//Array()
 	//Slice()
 	//Dict()
@@ -290,7 +339,9 @@ func Main() {
 	//Os()
 	//Url()
 	//Bufio()
-	Sort()
-	Search()
+	//Sort()
+	//Search()
 	//Channel()
+	Switch()
+	Random()
 }

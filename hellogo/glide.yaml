@@ -1,0 +1,101 @@
+package: .
+import:
+- package: buildin
+- package: github.com/Workiva/go-datastructures
+  version: ^1.0.34
+  subpackages:
+  - augmentedtree
+  - batcher
+  - bitarray
+  - btree/palm
+  - btree/plus
+  - common
+  - fibheap
+  - futures
+  - hashmap/fastinteger
+  - list
+  - numerics/hilbert
+  - numerics/optimization
+  - queue
+  - rangetree
+  - rangetree/skiplist
+  - rtree
+  - set
+  - slice
+  - slice/skip
+  - sort
+  - threadsafe/err
+  - tree/avl
+  - trie/xfast
+  - trie/yfast
+- package: github.com/davecgh/go-spew
+  version: ^1.1.0
+  subpackages:
+  - spew
+- package: github.com/emirpasic/gods
+  version: ^1.9.0
+  subpackages:
+  - containers
+  - lists
+  - lists/arraylist
+  - lists/doublylinkedlist
+  - lists/singlylinkedlist
+  - maps
+  - maps/hashbidimap
+  - maps/hashmap
+  - maps/treebidimap
+  - maps/treemap
+  - sets
+  - sets/hashset
+  - sets/treeset
+  - stacks
+  - stacks/arraystack
+  - stacks/linkedliststack
+  - trees
+  - trees/avltree
+  - trees/binaryheap
+  - trees/btree
+  - trees/redblacktree
+  - utils
+- package: github.com/hashicorp/hcl
+  subpackages:
+  - hcl/ast
+  - hcl/parser
+  - hcl/printer
+  - hcl/scanner
+  - hcl/strconv
+  - hcl/token
+  - json/parser
+  - json/scanner
+  - json/token
+- package: github.com/paked/configure
+- package: github.com/philhofer/fwd
+- package: github.com/pmezard/go-difflib
+  version: ^1.0.0
+  subpackages:
+  - difflib
+- package: github.com/satori/go.uuid
+  version: ^1.1.0
+- package: github.com/spaolacci/murmur3
+- package: github.com/stretchr/objx
+- package: github.com/stretchr/testify
+  version: ^1.1.4
+  subpackages:
+  - assert
+  - http
+  - mock
+  - require
+- package: github.com/tinylib/msgp
+  version: ^1.0.0
+  subpackages:
+  - gen
+  - msgp
+  - parse
+  - printer
+- package: github.com/ttacon/chalk
+  version: ^0.1.0
+- package: gods
+- package: golang.org/x/tools
+  subpackages:
+  - imports
+- package: murmur3
