@@ -47,6 +47,8 @@ func Strings() {
 		str := "0123456789"
 		str = str[:4] + str[5:]
 		fmt.Println(str)
+		fmt.Println(str[5:9])
+		fmt.Println(str[0:4])
 	}
 }
 
@@ -328,20 +330,20 @@ func Random() {
 }
 
 func Main() {
-	//Strings()
-	//Array()
-	//Slice()
-	//Dict()
-	//ContainerList()
-	//Time()
-	//Math()
-	//Json()
-	//Os()
-	//Url()
-	//Bufio()
-	//Sort()
-	//Search()
-	//Channel()
+	Strings()
+	Array()
+	Slice()
+	Dict()
+	ContainerList()
+	Time()
+	Math()
+	Json()
+	Os()
+	Url()
+	Bufio()
+	Sort()
+	Search()
+	Channel()
 	Switch()
 	Random()
 }

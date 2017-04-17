@@ -47,10 +47,22 @@ func TreeBidiMap() {
 	for it.Next() {
 		fmt.Println(it.Key(), it.Value())
 	}
+
+	{
+		aa := m.Iterator()
+		aa.Next()
+		fmt.Println(aa.Key(), aa.Value())
+	}
+	{
+		aa := m.Iterator()
+		aa.Next()
+		fmt.Println(aa.Key(), aa.Value())
+		m.Remove(aa.Key())
+	}
 }
 
 func Main() {
+	List()
 	TreeMap()
 	TreeBidiMap()
-	List()
 }

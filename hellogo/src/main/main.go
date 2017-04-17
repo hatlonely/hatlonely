@@ -1,9 +1,9 @@
 package main
 
 import (
-	"murmur3"
 	"buildin"
 	"gods"
+	"murmur3"
 )
 
 func main() {
