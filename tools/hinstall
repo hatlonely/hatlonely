@@ -44,10 +44,17 @@ function install_go() {
     warn "install go to $output failed." && return 255
 }
 
+function install_zsh() {
+    sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" &&
+    sed -i 's/^ZSH_THEME=.*$/ZSH_THEME="gianu"/g' ~/.zshrc &&
+    info "install zsh success." && return 0
+    warn "install zsh failed." && return 255
+}
+
 function usage() {
     info "usage: sh hinstall <module> [prefix=./output]"
     info "  module  模块名"
-    info "  module  路径"
+    info "  prefix  路径"
 }
 
 function main() {
@@ -59,6 +66,7 @@ function main() {
     case $1 in
         "redis") install_redis ${output};;
         "go") install_go ${output};;
+        "zsh") install_zsh;;
         *) usage;;
     esac
 }
