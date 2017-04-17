@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+
+function warn() {
+    echo "[31m$1[0m"
+}
+
+function info() {
+    echo "[32m$1[0m"
+}
+
+function trac() {
+    echo "$1"
+}
+
+function install_redis() {
+    output=$1
+    bin=${output}/bin
+    mkdir -p ${output}/bin
+    mkdir -p source && cd source &&
+    wget http://download.redis.io/releases/redis-3.2.8.tar.gz &&
+    tar -xzvf redis-3.2.8.tar.gz &&
+    cd redis-3.2.8 &&
+    make &&
+    cp src/redis-server ${bin} &&
+    cp src/redis-cli ${bin} &&
+    cp src/redis-trib.rb ${bin} &&
+    cp src/redis-sentinel ${bin} &&
+    gem install redis &&
+    info "install redis to $output success." && return 0
+    warn "install redis to $output failed." && return 255
+}
+
+function install_go() {
+    output=$1
+    mkdir -p source && cd source &&
+    wget https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz &&
+    tar -xzvf go1.8.linux-amd64.tar.gz &&
+    cp -r go/bin ${output} &&
+    cp -r go/lib ${output} &&
+    cp -r go/pkg ${output} &&
+    cp -r go/src ${output} &&
+    echo "export GOROOT=$output" >> ~/.bashrc &&
+    info "install go to $output success." && return 0
+    warn "install go to $output failed." && return 255
+}
+
+function usage() {
+    info "usage: sh hinstall <module> [prefix=./output]"
+    info "  module  模块名"
+    info "  module  路径"
+}
+
+function main() {
+    output=$(pwd)/output
+    if [[ ! -z $2 ]]; then
+        output=$2
+    fi
+
+    case $1 in
+        "redis") install_redis ${output};;
+        "go") install_go ${output};;
+        *) usage;;
+    esac
+}
+
+main $@
+
