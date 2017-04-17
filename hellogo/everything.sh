@@ -43,7 +43,7 @@ function unit() {
 
 function usage() {
     info "usage: "
-    info "  sh everything.sh <dependency | codegen | unit | build>"
+    info "  sh everything.sh <dependency | unit | build>"
     info "  dependency  安装依赖"
     info "  unit        单元测试"
     info "  build       编译"
@@ -51,12 +51,12 @@ function usage() {
 
 function main() {
     case $1 in
-        "dependency") install_protoc && install_go_dependency;;
+        "dependency") install_go_dependency;;
         "unit") unit;;
         "build") build;;
         *) usage;;
     esac
 }
 
-main
+main $@
 
