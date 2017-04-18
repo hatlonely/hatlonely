@@ -26,6 +26,7 @@ function install_redis() {
     cp src/redis-trib.rb ${bin} &&
     cp src/redis-sentinel ${bin} &&
     gem install redis &&
+    trac "export PATH=${output}/bin:\$PATH" &&
     info "install redis to $output success." && return 0
     warn "install redis to $output failed." && return 255
 }
@@ -39,7 +40,6 @@ function install_go() {
     cp -r go/lib ${output} &&
     cp -r go/pkg ${output} &&
     cp -r go/src ${output} &&
-    export GOROOT=${output} &&
     trac "export GOROOT=$output" &&
     info "install go to $output success." && return 0
     warn "install go to $output failed." && return 255
@@ -62,7 +62,7 @@ function install_python3() {
     python3 -m pip install pymongo &&
     python3 -m pip install psycopg2 &&
     python3 -m pip install pyquery &&
-    trac "export PATH=${output}/bin:$PATH" &&
+    trac "export PATH=${output}/bin:\$PATH" &&
     info "install python3 $output success." && return 0
     warn "install python3 $output failed." && return 255
 }
@@ -74,10 +74,30 @@ function install_zsh() {
     warn "install zsh failed." && return 255
 }
 
+function install_nodejs() {
+    output=$1
+    mkdir -p source && cd source &&
+    wget https://nodejs.org/dist/v6.10.2/node-v6.10.2.tar.gz &&
+    tar -xzvf node-v6.10.2.tar.gz &&
+    cd node-v6.10.2 &&
+    ./configure --prefix=${output} &&
+    make -j8 && make install &&
+    trac "export PATH=${output}/bin:\$PATH" &&
+    info "install nodejs $output success." && return 0
+    warn "install nodejs $output failed." && return 255
+}
+
 function usage() {
     info "usage: sh hinstall <module> [prefix=./output]"
     info "  module  模块名"
     info "  prefix  路径"
+    info ""
+    info "module列表"
+    info "  redis [centos, macos]"
+    info "  go [centos]"
+    info "  zsh [centos, macos]"
+    info "  python3 [centos, macos]"
+    info "  nodejs [centos, macos]"
 }
 
 function main() {
@@ -91,6 +111,7 @@ function main() {
         "go") install_go ${output};;
         "zsh") install_zsh;;
         "python3") install_python3 ${output};;
+        "nodejs") install_nodejs ${output};;
         *) usage;;
     esac
 }
