@@ -1,0 +1,4 @@
+{
+  "dbpath": "data/leveldb/",
+  "address": ":6001"
+}

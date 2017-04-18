@@ -1,0 +1,12 @@
+<seelog>
+    <outputs>
+        <filter levels="debug, trace, info, warn, error, critical">
+            <buffered formatid="runtime" size="10000" flushperiod="100">
+                <rollingfile type="date" filename="./log/hdb.log" datepattern="2006010215" maxrolls="240"/>
+            </buffered>
+        </filter>
+    </outputs>
+    <formats>
+        <format id="runtime" format="%Date %Time [%Level] [%RelFile:%Line] [%Func] %Msg%n"/>
+    </formats>
+</seelog>
