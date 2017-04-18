@@ -20,7 +20,7 @@ function install_redis() {
     wget http://download.redis.io/releases/redis-3.2.8.tar.gz &&
     tar -xzvf redis-3.2.8.tar.gz &&
     cd redis-3.2.8 &&
-    make &&
+    make -j8 &&
     cp src/redis-server ${bin} &&
     cp src/redis-cli ${bin} &&
     cp src/redis-trib.rb ${bin} &&
@@ -39,9 +39,32 @@ function install_go() {
     cp -r go/lib ${output} &&
     cp -r go/pkg ${output} &&
     cp -r go/src ${output} &&
-    echo "export GOROOT=$output" >> ~/.bashrc &&
+    export GOROOT=${output} &&
+    trac "export GOROOT=$output" &&
     info "install go to $output success." && return 0
     warn "install go to $output failed." && return 255
+}
+
+function install_python3() {
+    output=$1
+    mkdir -p source && cd source &&
+    wget https://www.python.org/ftp/python/3.6.0/Python-3.6.0.tgz &&
+    tar -xzf Python-3.6.0.tgz &&
+    cd Python-3.6.0 &&
+    ./configure --prefix=${output} &&
+    make -j8 && make install &&
+    export PATH=${output}/bin:$PATH &&
+    python3 -m pip install pymysql &&
+    python3 -m pip install murmurhash3 &&
+    python3 -m pip install httplib2 &&
+    python3 -m pip install kafka &&
+    python3 -m pip install kafka-python &&
+    python3 -m pip install pymongo &&
+    python3 -m pip install psycopg2 &&
+    python3 -m pip install pyquery &&
+    trac "export PATH=${output}/bin:$PATH" &&
+    info "install python3 $output success." && return 0
+    warn "install python3 $output failed." && return 255
 }
 
 function install_zsh() {
@@ -67,6 +90,7 @@ function main() {
         "redis") install_redis ${output};;
         "go") install_go ${output};;
         "zsh") install_zsh;;
+        "python3") install_python3 ${output};;
         *) usage;;
     esac
 }
