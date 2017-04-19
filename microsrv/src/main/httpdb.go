@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 	"github.com/cihub/seelog"
-	"github.com/go-mgo/mgo"
 	"github.com/spf13/viper"
+	"gopkg.in/mgo.v2"
 	"net/http"
 )
 
