@@ -6,3 +6,5 @@ src/golang.org/
 src/google.golang.org/
 src/gopkg.in/
 pkg/
+bin/
+src.tar.gz
