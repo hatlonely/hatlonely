@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+curl -G --data-urlencode "key=$1" http://www.hatlonely.com:6001/get
