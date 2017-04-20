@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+
+import sys
+
+
+def low2cam(low):
+    words = low.split('_')
+    return words[0] + ''.join(map(lambda x: x.capitalize(), words[1:]))
+
+
+def main():
+    for line in sys.stdin:
+        print(low2cam(line[:-1]))
+
+
+if __name__ == '__main__':
+    main()
