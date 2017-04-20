@@ -158,6 +158,8 @@ func Time() {
 	unixtimenano := time.Now().UnixNano()
 	fmt.Println(unixtimenano)
 
+	fmt.Println(time.Unix(unixtimenano/1000000000, unixtimenano%1000000000))
+
 	yyyymmddhhmmss := time.Now().Format("2006-01-02 15:04:05")
 	rfc3399time := time.Now().Format(time.RFC3339)
 	fmt.Println(yyyymmddhhmmss, rfc3399time)
