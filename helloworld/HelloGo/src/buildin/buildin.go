@@ -331,6 +331,18 @@ func Random() {
 	}
 }
 
+func Defer() {
+	now := time.Now()
+	defer fmt.Println(time.Since(now))
+	defer func() { fmt.Println(time.Since(now)) }()
+
+	for i := 0; i < 10; i++ {
+		fmt.Println("abc")
+	}
+	time.Sleep(2 * time.Second)
+	fmt.Println(time.Since(now))
+}
+
 func Main() {
 	Strings()
 	Array()
@@ -348,4 +360,5 @@ func Main() {
 	Channel()
 	Switch()
 	Random()
+	Defer()
 }
