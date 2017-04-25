@@ -1,0 +1,50 @@
+#!/usr/bin/env python3
+
+# dependency:
+#   pip install murmurhash3
+
+import mmh3
+import sys
+import argparse
+
+
+def murmur_hash64(text):
+    value = mmh3.hash64(text)[0]
+    if value < 0:
+        value += 2 ** 64
+    return value
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('text', help='文本', nargs='?')
+    parser.add_argument('-m', '--mod', help='模式', choices=['cmd', 'file', 'stdin'], type=str, default='cmd')
+    parser.add_argument('-i', '--idx', help='字段', type=int, default=0)
+    parser.add_argument('-f', '--file', help='文件名', type=str)
+    args = parser.parse_args()
+
+    if args.mod == 'cmd' and not args.text:
+        args.mod = 'stdin'
+
+    if args.mod == 'cmd':
+        print('{}\t{}'.format(args.text, murmur_hash64(args.text)))
+    else:
+        fd = sys.stdin
+        if args.mod == 'stdin':
+            fd = sys.stdin
+        if args.mod == 'file':
+            fd = open(args.file)
+        for line in fd:
+                line = line[:-1]
+                if args.idx == 0:
+                    print('{}\t{}'.format(line, murmur_hash64(line)))
+                else:
+                    try:
+                        value = line.split('\t')[args.idx - 1]
+                        print('{}\t{}'.format(line, murmur_hash64(value)))
+                    except Exception as e:
+                        print(e)
+
+
+if __name__ == '__main__':
+    main()

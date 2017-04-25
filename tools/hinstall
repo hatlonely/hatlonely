@@ -118,6 +118,7 @@ function main() {
     if [[ ! -z $2 ]]; then
         output=$2
     fi
+    mkdir -p ${output}
 
     case $1 in
         "redis") install_redis ${output};;
